@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MainProject.Models;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MainProject.Controllers
 {
+
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
-            return View();
+            return View(db.News.ToList());
         }
 
         public ActionResult About()

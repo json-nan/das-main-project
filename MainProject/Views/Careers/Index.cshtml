@@ -1,0 +1,26 @@
+﻿@model IEnumerable<MainProject.Models.Career>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Crear nueva carrera", "Create")
+</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="col col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                    <p class="card-text"> @Html.DisplayFor(modelItem => item.Description)</p>
+                    @*<a href="#" class="btn btn-primary">Go somewhere</a>*@
+                </div>
+            </div>
+        </div>
+    }
+</div>
