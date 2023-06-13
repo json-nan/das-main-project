@@ -12,8 +12,8 @@ namespace MainProject.Controllers
 
         public ActionResult Index()
         {
-            List<Career> careers = db.Careers.ToList();
-            List<New> news = db.News.ToList();
+            List<Career> careers = db.Careers.Take(3).ToList();
+            List<New> news = db.News.Take(3).ToList();
 
             dynamic model = new System.Dynamic.ExpandoObject();
             model.Careers = careers;

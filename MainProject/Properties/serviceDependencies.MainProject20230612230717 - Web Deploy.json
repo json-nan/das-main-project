@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "serviceConnectorResourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Web/sites/MainProject20230612230717/providers/Microsoft.ServiceLinker/linkers/ConnectionStringsMP_655C1BE6CD",
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/mainprojectdbserver/databases/MainProject_db",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:MP",
+      "dynamicId": null
+    }
+  }
+}
