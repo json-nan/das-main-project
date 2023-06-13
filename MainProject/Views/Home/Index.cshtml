@@ -1,34 +1,58 @@
-﻿@model IEnumerable<MainProject.Models.New>
+﻿@using MainProject.Models
+@model dynamic
 
 @{
     ViewBag.Title = "UDB+";
 }
 
 <main>
-    <div class="row justify-content-md-center">
-        <div class="col col-lg-4">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/GzBX2hSOll0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <div class="gap-3 d-flex flex-column">
+        <div class="d-flex justify-content-center">
+            <div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/GzBX2hSOll0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        @foreach (var item in Model)
-        {
-
-            <div class="col col-md-4">
-                <div class="d-flex justify-content-center">
-                    <div>
-                        <h2>
-                            @Html.DisplayFor(modelItem => item.Title)
-                        </h2>
+        <div>
+            <h1>
+                Noticias recientes
+            </h1>
+            <hr />
+        </div>
+        <div class="row">
+            @foreach (MainProject.Models.New item in Model.News)
+            {
+                <div class="col-md-4">
+                    <figure class="text-center">
+                        <blockquote class="blockquote">
+                            <p>@Html.DisplayFor(modelItem => item.Title)</p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer">
+                            @Html.DisplayFor(modelItem => item.PublishDate)
+                        </figcaption>
                         <p>
                             @Html.DisplayFor(modelItem => item.Content)
                         </p>
-                        <p>
-                            @Html.DisplayFor(modelItem => item.PublishDate)
-                        </p>
-                    </div>
+                    </figure>
                 </div>
-            </div>
-        }
+            }
+        </div>
+        <div>
+            <h1>
+                Carreras destacadas
+            </h1>
+            <hr />
+        </div>
+        <div class="row">
+            @foreach (MainProject.Models.Career item in Model.Careers)
+            {
+                <div class="col-md-4">
+                    <figure class="text-center">
+                        <blockquote class="blockquote">
+                            <p>@Html.DisplayFor(modelItem => item.Name)</p>
+                        </blockquote>
+                    </figure>
+                </div>
+            }
+        </div>
     </div>
 </main>

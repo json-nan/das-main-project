@@ -1,4 +1,5 @@
 ﻿using MainProject.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -11,7 +12,14 @@ namespace MainProject.Controllers
 
         public ActionResult Index()
         {
-            return View(db.News.ToList());
+            List<Career> careers = db.Careers.ToList();
+            List<New> news = db.News.ToList();
+
+            dynamic model = new System.Dynamic.ExpandoObject();
+            model.Careers = careers;
+            model.News = news;
+
+            return View(model);
         }
 
         public ActionResult About()
